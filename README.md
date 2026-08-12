@@ -1,2 +1,37 @@
 # CodingAgents
 Langgraph based coding agents which help from requirements to actual application development
+
+## Environment Variables
+# Planner Agent
+PLANNER_MODEL=""
+PLANNER_MODEL_NAME=""
+PLANNER_MODEL_BASE_URL=""
+PLANNER_MODEL_API_KEY=""
+
+# Design Agent
+DESIGN_MODEL=""
+DESIGN_MODEL_BASE_URL=""
+DESIGN_MODEL_API_KEY=""
+
+# Coding Agent
+CODER_MODEL=""
+CODER_MODEL_BASE_URL=""
+CODER_MODEL_API_KEY=""
+
+# QA Agent
+VISUAL_QA_MODEL=""
+VISUAL_QA_MODEL_BASE_URL=""
+VISUAL_QA_MODEL_API_KEY=""
+
+# Reviewer Agent
+REVIEW_MODEL=""
+REVIEW_MODEL_BASE_URL=""
+REVIEW_MODEL_API_KEY=""
+REVIEW_FALLBACK_MODEL=""
+REVIEW_FALLBACK_MODEL_BASE_URL=""
+REVIEW_FALLBACK_MODEL_API_KEY=""
+
+# Frontier Review Agent
+REVIEW_FRONTIER_MODEL=""
+REVIEW_FRONTIER_BASE_URL=""
+REVIEW_FRONTIER_API_KEY=""
