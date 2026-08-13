@@ -31,8 +31,7 @@ def planning_node(state: AgentState) -> dict:
 
         Do NOT write implementation code yet.
         """), 
-        HumanMessage(content=state["request"])],
-    )
+        HumanMessage(content=state["request"])])
 
     return { "plan": message_text(response), "iteration": state.get("iteration", 0) }
 
@@ -103,15 +102,12 @@ def implementation_node(state: AgentState) -> dict:
         4. Use write_file to create or update source files.
         5. Never return the complete source code in the final response.
         6. Actually modify the project using the provided tools.
-        7. Do not invent files that you have not inspected when modifying
-        an existing application.
-        8. Preserve existing working functionality unless the requirements
-        explicitly require changing it.
+        7. Do not invent files that you have not inspected when modifying an existing application.
+        8. Preserve existing working functionality unless the requirements explicitly require changing it.
         9. Incorporate previous QA and review feedback.
         10. Keep the implementation production-quality.
         11. Do not write outside the project workspace.
-        12. When the implementation is complete, stop calling tools and
-            return a concise summary of:
+        12. When the implementation is complete, stop calling tools and return a concise summary of:
             - what was implemented
             - important architectural decisions
             - files changed
@@ -310,18 +306,6 @@ def capture_application_screenshots(workspace_path: str, routes: dict[str, str] 
     finally:
         server.terminate()
         server.wait(timeout=10)
-
-# def capture_application_screenshots(implementation: str) -> list[str]:
-#     """
-#     Integrate your sandbox / coding environment here.
-#     Example return:
-#         [
-#             "/tmp/build/home-desktop.png",
-#             "/tmp/build/home-mobile.png",
-#             "/tmp/build/settings.png",
-#         ]
-#     """
-#     raise NotImplementedError("Connect this function to your build + Playwright sandbox.")
 
 
 # ---------------------------------------------------------
