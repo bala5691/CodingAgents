@@ -61,3 +61,10 @@ class ModelRouter:
                 )
 
         raise RuntimeError( f"All models failed for phase={phase}. Errors: {' | '.join(errors)}")
+    
+    def get_client(self, vphase: str, vindex: int = 0) -> ChatOpenAI:
+        endpoints = self.routes[phase]
+        if index >= len(endpoints):
+            raise ValueError(f"No model configured for phase={phase}, index={index}")
+
+        return self._client(endpoints[index])

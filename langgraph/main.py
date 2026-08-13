@@ -1,3 +1,4 @@
+import os
 from graph import app
 
 
@@ -12,8 +13,8 @@ request = """
     - responsive design
     - modern enterprise UI
     """
-
-result = app.invoke({ "request": request, "iteration": 0, "max_iterations": 3 })
+workspace_path = os.getenv("WORKSPACE_PATH")
+result = app.invoke({ "request": request, "name": "customer-dashboard", "workspace_path": workspace_path, "iteration": 0, "max_iterations": 3 })
 
 print("STATUS:")
 print(result["status"])

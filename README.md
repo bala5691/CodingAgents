@@ -241,6 +241,8 @@ REVIEW_FRONTIER_API_KEY=""
 The following example shows all supported environment variables:
 
 ```env
+WORKSPACE_PATH= "{base_path}/GeneratedApps"
+
 # Planner Agent
 PLANNER_MODEL=""
 PLANNER_MODEL_NAME=""

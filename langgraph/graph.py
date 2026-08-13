@@ -14,6 +14,7 @@ def build_graph():
     graph.add_node("planning", planning_node)
     graph.add_node("design", design_node)
     graph.add_node("implementation", implementation_node)
+    graph.add_node("validation", validation_node)
     graph.add_node("render", render_node)
     graph.add_node("visual_qa", visual_qa_node)
     graph.add_node("review_dispatch", review_dispatch_node)
@@ -28,7 +29,14 @@ def build_graph():
     graph.add_edge(START, "planning")
     graph.add_edge("planning", "design")
     graph.add_edge("design", "implementation")
-    graph.add_edge("implementation", "render")
+    graph.add_edge("implementation", "validation")
+    graph.add_conditional_edges("validation_qa", route_after_validation_qas,
+        {
+            "retry": "implementation",
+            "review": "render",
+            "final": "final",
+        })
+    # graph.add_edge("validation", "render")
     graph.add_edge("render", "visual_qa")
 
     # --------------------------------------------------

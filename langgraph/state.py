@@ -4,13 +4,23 @@ from typing import TypedDict
 class AgentState(TypedDict, total=False):
     # Input
     request: str
+    name: str
 
     # Generated artifacts
     plan: str
     design: str
+    
+    # Real project location
     workspace_path: str
+    
+    # Files modified by Qwen3-Coder
     changed_files: list[str]
-    # implementation: str
+    
+    # Coder's summary, NOT the entire codebase
+    implementation: str
+    
+    build_passed: bool
+    build_feedback: str
 
     # Visual execution
     screenshots: list[str]

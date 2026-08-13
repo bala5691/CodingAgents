@@ -1,6 +1,16 @@
 from state import AgentState
 
 
+def route_after_validation_qa(state: AgentState) -> str:
+    if state.get("validation_passed"):
+        return "render"
+
+    if state.get("iteration", 0) >= state.get( "max_iterations", 3):
+        return "final"
+
+    return "retry"
+
+
 def route_after_visual_qa(state: AgentState) -> str:
     if state.get("visual_qa_passed"):
         return "review"
